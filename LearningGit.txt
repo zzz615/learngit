@@ -1,0 +1,33 @@
+Git:分布式版本控制系统
+版本库：repository（仓库）
+mkdir:创建一个目录（文件夹）
+cd：打开指定目录
+pwd：显示当前目录
+git init:创建版本库
+git add:将文件添加到暂存区
+git commit -m "something":将暂存区的所有文件提交至版本库中
+git status:获取当前仓库的状态
+git diff:查看文件修改的内容
+git log:显示从最近到最远的提交日志
+git log --pretty=oneline:简化版的提交日志
+Git中用HEAD表示当前版本，上一个版本是HEAD^，上上个版本是HEAD^^，往上100个版本是HEAD~100
+git reset --hard HEAD^:回到上一个版本
+git reset --hard commit_id:回到指定版本号（commit_id）的版本
+git reflog:记录每一次命令
+工作区和暂存区。隐藏目录.git是GIT的版本库，版本库中存了很多东西，最重要的就是暂存区（stage或者index），还有Git自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+git checkout -- file:丢弃工作区的修改
+git reset HEAD <file>:把暂存区的修改撤销掉，重新放回工作区
+
+远程仓库：github
+创建SSH Key。id_rsa是私钥，id_rsa.pub是公钥
+git remote add origin git@github.com:zzz615/learngit.git：将本地仓库与GitHub仓库关联
+git push -u origin master:将本地仓库master分支推送到GitHub仓库master分支。加入“-u”参数是因为第一次推送，把本地的master分支和远程的master分支关联起来，之后就不需要。
+git clone git@github.com:zzz615/gitskills.git：从远程库克隆一个本地库
+
+git checkout -b dev（git switch -c dev）:创建dev分支，并切换到dev分支
+git checkout master（git switch master）:切换到master分支
+git branch:查看当前分支。会列出所有分支，当前分支前面会标一个*号。
+git branch <name>:创建分支
+git merge dev:把dev分支的工作成果合并到master分支。合并指定分支到当前分支
+git branch -d dev:删除dev分支
+分支可能会发生冲突，通过git log --graph命令可以看到分支合并图
